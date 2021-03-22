@@ -1,0 +1,36 @@
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-self: center;
+    color: $white;
+    font: 1.4rem $IBMPlex-reg;
+    padding: 1.5rem 1rem;
+    border-radius: 4px;
+    background-color: $red;
+    border: none;
+    text-transform: uppercase;
+    text-align: center;
+    min-width: 20rem;
+
+    &:hover,
+    &:focus {
+        background-color: $red-hovered;
+    }
+    &:active {
+        transform: translateY(1px);
+    }
+
+    &--round {
+        padding: 1.4rem;
+        border-radius: 50%;
+        width: initial;
+        height: initial;
+        min-width: initial;
+    }
+
+    &--disabled {
+        filter: grayscale(1);
+        opacity: 0.2;
+        pointer-events: none;
+    }
+}

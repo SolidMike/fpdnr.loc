@@ -1,0 +1,65 @@
+-
+    const gallery = [
+        {
+            image: 'screenshot_1',
+            url: './static/images/content/screenshot_1.jpg'
+        },
+        {
+            image: 'screenshot_2',
+            url: './static/images/content/screenshot_2.jpg'
+        },
+        {
+            image: 'screenshot_4',
+            url: './static/images/content/screenshot_4.jpg'
+        },
+        {
+            image: 'screenshot_5',
+            url: './static/images/content/screenshot_5.jpg'
+        },
+        {
+            image: 'screenshot_6',
+            url: './static/images/content/screenshot_6.jpg'
+        },
+        {
+            image: 'screenshot_7',
+            url: './static/images/content/screenshot_7.jpg'
+        },
+                {
+            image: 'screenshot_1',
+            url: './static/images/content/screenshot_1.jpg'
+        },
+        {
+            image: 'screenshot_2',
+            url: './static/images/content/screenshot_2.jpg'
+        },
+        {
+            image: 'screenshot_4',
+            url: './static/images/content/screenshot_4.jpg'
+        },
+        {
+            image: 'screenshot_5',
+            url: './static/images/content/screenshot_5.jpg'
+        },
+        {
+            image: 'screenshot_6',
+            url: './static/images/content/screenshot_6.jpg'
+        },
+        {
+            image: 'screenshot_7',
+            url: './static/images/content/screenshot_7.jpg'
+        },
+    ]
+section.section.gallery 
+    .container
+        .section__title.section__title--decorated #[span Галерея]
+        ul.grid
+            each obj in gallery
+                li.grid__item
+                    .card
+                        a(href= obj.url data-magnific-popup="gallery").card__link
+                            .card__heading
+                                .card__overlay
+                                +picture('./static/images/content', obj.image, ['webp', 'jpg'])(class="card__image")
+                                +icon('zoom', 'card__zoom')
+        .pagination
+            +btn({label: 'Загрузить еще'})

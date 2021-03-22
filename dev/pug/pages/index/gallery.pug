@@ -1,0 +1,69 @@
+-
+    const gallery = [
+        {
+            image: 'screenshot_1',
+            url: './static/images/content/screenshot_1.jpg'
+        },
+        {
+            image: 'screenshot_2',
+            url: './static/images/content/screenshot_2.jpg'
+        },
+        {
+            image: 'screenshot_4',
+            url: './static/images/content/screenshot_4.jpg'
+        },
+        {
+            image: 'screenshot_5',
+            url: './static/images/content/screenshot_5.jpg'
+        },
+        {
+            image: 'screenshot_6',
+            url: './static/images/content/screenshot_6.jpg'
+        },
+        {
+            image: 'screenshot_7',
+            url: './static/images/content/screenshot_7.jpg'
+        },
+                {
+            image: 'screenshot_1',
+            url: './static/images/content/screenshot_1.jpg'
+        },
+        {
+            image: 'screenshot_2',
+            url: './static/images/content/screenshot_2.jpg'
+        },
+        {
+            image: 'screenshot_4',
+            url: './static/images/content/screenshot_4.jpg'
+        },
+        {
+            image: 'screenshot_5',
+            url: './static/images/content/screenshot_5.jpg'
+        },
+        {
+            image: 'screenshot_6',
+            url: './static/images/content/screenshot_6.jpg'
+        },
+        {
+            image: 'screenshot_7',
+            url: './static/images/content/screenshot_7.jpg'
+        },
+    ]
+section.section.gallery.gallery--has--bg
+    .container
+        .section__title.section__title--decorated.section__title--color--white #[span Галерея]
+        .slider-wrapp
+            .swiper-container.gallery__slider.js-gallery-slider
+                .swiper-wrapper
+                    each obj in gallery
+                        .swiper-slide.gallery__slide
+                            .card
+                                a(href= obj.url data-magnific-popup="gallery").card__link
+                                    .card__heading
+                                        .card__overlay
+                                        +picture('./static/images/content', obj.image, ['webp', 'jpg'])(class="card__image")
+                                        +icon('zoom', 'card__zoom')
+            .swiper-button-prev.gallery__btn-prev.btn.btn--round.js-gallery-btn-prev
+                +icon('arrow-prev')
+            .swiper-button-next.gallery__btn-next.btn.btn--round.js-gallery-btn-next
+                +icon('arrow-next')

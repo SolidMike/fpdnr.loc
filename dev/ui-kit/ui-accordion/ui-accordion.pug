@@ -1,0 +1,54 @@
+//- accordion
+mixin accordion(config, block_mod)
+    //- default values
+    - block_mod = block_mod || ''
+
+    .accordion(class= block_mod)
+        each item in config
+            +accordion-item(item)
+
+//- accordion-item
+mixin accordion-item(item)
+    //- default values
+    - item.class_array = item.class_array || {}
+    - item.class_array.item_mod = item.class_array.item_mod || ''
+    - item.class_array.heading_mod = item.class_array.heading_mod || ''
+    - item.class_array.title_mod = item.class_array.title_mod || ''
+    - item.class_array.inner_mod = item.class_array.inner_mod || ''
+    - item.class_array.content_mod = item.class_array.content_mod || ''
+    - item.icon = item.icon || {}
+    - item.icon.name = item.icon.name || ''
+    - item.icon.mod = item.icon.mod || ''
+
+    dl.accordion__item(class= item.expanded ? 'is-open' : '' class= item.class_array.item_mod)
+        dt.accordion__heading.js-accordion-toggle(class= item.class_array.heading_mod)
+            if item.icon.name
+                +icon(item.icon.name, `${item.icon.mod} accordion__icon`)
+            else
+            .accordion__title(class= item.class_array.title_mod)= item.title
+        dd.accordion__inner.js-accordion-inner(class= item.class_array.inner_mod)
+            .accordion__content(class= item.class_array.content_mod)= item.content
+
+-
+    const block_mod = 'accordion--full-width'
+    const itemList = [
+        {
+            title: 'Заголовок11111',
+            content: 'Lorem ipsum',
+            icon: {
+                name: 'phone',
+                mod: '',
+            },
+            expanded: true,
+            class_array: {
+                block_mod: 'accordion--full-width',
+                item_mod: 'accordion__item--red'
+            }
+        },
+        {
+            title: 'Заголовок222222',
+            content: 'Lorem ipsum 222222',
+            expanded: false
+        }
+    ]
++accordion(itemList, block_mod)

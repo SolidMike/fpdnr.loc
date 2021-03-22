@@ -1,0 +1,41 @@
+.pagination,
+.search__pagination {
+    margin-top: calc(2rem + 2.5vw) !important;
+    text-align: center;
+
+    &__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__item {
+        margin: 0 0.5rem;
+        font-size: rem(18px);
+        color: $red;
+        text-decoration: underline;
+        &.is-active {
+            color: $black;
+            text-decoration: none;
+        }
+
+        &:last-child,
+        &:first-child {
+            margin: 0 3rem;
+        }
+    }
+
+    &__number {
+        font-family: $TTNorms-bold;
+        color: inherit;
+    }
+
+    &__btn-next,
+    &__btn-prev {
+        color: inherit;
+    }
+}
+
+.btn-more {
+    margin-top: calc(2rem + 2.5vw) !important;
+}

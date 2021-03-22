@@ -1,0 +1,41 @@
+.cms-content {
+    line-height: 1.6;
+    p {
+        @include fluid-type($min-vw, $max-vw, 14px, 16px);
+    }
+    ul,
+    ol {
+        list-style-type: revert;
+        list-style-position: inside;
+    }
+    table {
+        width: 100%;
+        text-align: left;
+        border-collapse: collapse;
+    }
+    thead {
+        background-color: $mdnblue;
+        color: $white;
+
+        @include screen(1000px) {
+            background-image: unset;
+            background-color: $mdnblue;
+        }
+    }
+    tbody {
+        background: #efefef;
+    }
+    th {
+        padding: 2rem 2.5rem;
+        font-family: $IBMPlex-reg;
+        font-weight: 400;
+    }
+    td {
+        padding: 1.2rem 2.5rem;
+    }
+
+    &__table {
+        box-shadow: 0 16px 72px rgba(0, 0, 0, 0.08);
+        overflow-x: auto;
+    }
+}

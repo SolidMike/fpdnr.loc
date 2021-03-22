@@ -1,0 +1,48 @@
+extends template/main
+
+block variables
+    - var title = 'Контакты'
+    - var pageClass = 'contacts-page'
+
+block content
+    section.section
+        .container 
+            .section__title.section__title--size--large Контакты
+            .contacts-page__grid
+                .contacts-page__info
+                    dl.contacts.contacts--view--contacts-page
+                        dt.contacts__title Адрес:
+                        dd.contacts__item 
+                            .contacts__text ул. Артёма 87, Донецк
+                        dt.contacts__title Телефон:
+                        dd.contacts__item
+                            a.contacts__link(href="tel:+380623043431") +38 (062) 304-34-31
+                        dt.contacts__title Эл. почта: 
+                        dd.contacts__item
+                            a.contacts__link(href="mailto:priemnaya.fpdnr@yandex.ru") priemnaya.fpdnr@yandex.ru
+                        dt.contacts__title График работы:
+                        dd.contacts__item
+                            .contacts__text пн–пт: 10:00–16:00
+                        dd.contacts__item
+                            .contacts__text перерыв: 13:00–14:00
+                    ul.socials.contacts-page__socials 
+                        li.socials__item 
+                            a(href="#").socials__link
+                                span
+                                    +icon('youtube', 'socials__icon')
+                                .socials__text Канал YouTube ФП ДНР
+                        li.socials__item 
+                            a(href="#").socials__link
+                                span
+                                    +icon('telegram', 'socials__icon')
+                                .socials__text Канал Telegram ФП ДНР
+                        li.socials__item 
+                            a(href="#").socials__link
+                                span
+                                    +icon('vk', 'socials__icon')
+                                .socials__text Молодежный совет ФП ДНР
+                .map.contacts-page__map
+                    .map__wrapper
+                        .map__loader.loader.loader--default
+                        #map-yandex
+    include ./modules/seo/seo

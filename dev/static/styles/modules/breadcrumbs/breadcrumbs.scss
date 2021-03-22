@@ -1,0 +1,32 @@
+.breadcrumbs {
+    @include fluid-type($min-vw, $max-vw, 12px, 14px);
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1em;
+
+    & > * {
+        &:not(:last-child) {
+            margin-right: 14px;
+            position: relative;
+
+            &::after {
+                content: '/';
+                display: inline-block;
+                position: absolute;
+                right: -10px;
+                font-family: $TTNorms-bold;
+            }
+        }
+    }
+
+    &__link {
+        font-family: $TTNorms-bold;
+        color: inherit;
+    }
+
+    &__text {
+        color: inherit;
+    }
+}

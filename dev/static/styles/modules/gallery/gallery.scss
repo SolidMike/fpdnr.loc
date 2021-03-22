@@ -1,0 +1,36 @@
+.gallery {
+    &--has--bg {
+        @include cover-background;
+        @include webp-bg-image('../images/general/gallery-bg', 'jpg');
+
+        @include screen(1000px) {
+            background-image: unset;
+            background-color: $mdnblue;
+        }
+    }
+
+    &__slider {
+        height: 530px;
+    }
+
+    &__slide {
+        height: calc((100% - 30px) / 2);
+    }
+
+    &__btn-prev {
+        left: -5vw;
+        z-index: z('slider-btns');
+
+        @include screen(1350px) {
+            left: 0;
+        }
+    }
+    &__btn-next {
+        right: -5vw;
+        z-index: z('slider-btns');
+
+        @include screen(1350px) {
+            right: 0;
+        }
+    }
+}

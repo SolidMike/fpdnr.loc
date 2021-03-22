@@ -1,0 +1,129 @@
+.card {
+    > *:not(:first-child) {
+        margin-top: calc(1.5rem + 1vw);
+    }
+
+    &--type--docs {
+        padding: calc(1rem + 1vw) 0;
+        > *:not(:first-child) {
+            margin-top: calc(1rem + 0.5vw);
+        }
+    }
+    picture {
+        height: inherit;
+    }
+    &__heading {
+        position: relative;
+        color: $white;
+        overflow: hidden;
+        height: 250px;
+    }
+    &__overlay {
+        position: absolute;
+        background: rgba(8, 28, 68, 0.6);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        z-index: z('card-overlay');
+        transition: 0.3s ease-in-out;
+
+        &.is-visible {
+            opacity: 1;
+        }
+    }
+    &__link {
+        display: contents;
+        color: inherit;
+        &:hover {
+            color: $red-hovered;
+            .card__image {
+                transform: scale(1.2);
+            }
+            .card__zoom {
+                opacity: 1;
+            }
+            .card__overlay {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__image {
+        height: inherit;
+        width: 100%;
+        object-fit: cover;
+        transition: 0.3s ease-in-out;
+    }
+
+    &__zoom {
+        @include center-vertically;
+        z-index: z('card-date');
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-size: 2.5rem;
+    }
+
+    &__more {
+        display: block;
+        color: $red;
+        font-family: $TTNorms-bold;
+
+        &:hover {
+            color: $red-hovered;
+        }
+    }
+
+    &__icon {
+        margin-left: 1rem;
+    }
+
+    &__title {
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        font-family: $TTNorms-bold;
+
+        .card--type--docs & {
+            font-family: $IBMPlex-bold;
+            font-size: 2.4rem;
+        }
+    }
+
+    &__descr {
+        strong {
+            font-family: $TTNorms-bold;
+        }
+    }
+
+    &__date {
+        font-family: $TTNorms-bold;
+        position: absolute;
+        font-size: 1.4rem;
+        top: 2rem;
+        left: 3.6rem;
+        display: flex;
+        max-width: 10rem;
+        align-items: center;
+        z-index: z('card-date');
+
+        .card--type--docs & {
+            font-family: $TTNorms-reg;
+            position: initial;
+            color: #b0b0b0;
+            max-width: initial;
+            font-size: 1.6rem;
+
+            span {
+                font-size: inherit;
+                margin-right: 0;
+                margin-left: 1rem;
+            }
+        }
+
+        span {
+            font-size: 3.6rem;
+            margin-right: 2rem;
+        }
+    }
+}

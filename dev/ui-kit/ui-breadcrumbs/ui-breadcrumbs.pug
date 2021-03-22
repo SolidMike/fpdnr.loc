@@ -1,0 +1,13 @@
+mixin breadcrumbs-item(text,href)
+	li.breadcrumbs__item
+		if(href)
+			a.breadcrumbs__link(href=href itemprop="item")
+				span(itemprop="name")=text
+			meta(itemprop="position" content="")
+		else
+			span(itemprop="name").breadcrumbs__text=text
+			meta(itemprop="position" content="")
+
+ul.breadcrumbs(itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem")
+	+breadcrumbs-item('Home','#')
+	+breadcrumbs-item('Home')

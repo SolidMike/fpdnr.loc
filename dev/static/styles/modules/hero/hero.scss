@@ -1,0 +1,57 @@
+.hero {
+    @include flex-center;
+    overflow-x: hidden;
+    text-align: center;
+    color: $white;
+    text-transform: uppercase;
+    padding: calc(4rem + 6vw) 0;
+
+    @include screen(1000px) {
+        padding: calc(2rem + 4.5vw) 0;
+    }
+
+    &__slider {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+
+    &__container {
+        z-index: z('hero-container');
+    }
+
+    &__slogan {
+        @include fluid-type($min-vw, $max-vw, 30px, 48px);
+        font-family: $IBMPlex-bold;
+    }
+
+    &__title {
+        @include fluid-type($min-vw, $max-vw, 20px, 30px);
+        margin-top: 15vmin;
+    }
+
+    &__title span {
+        font-family: $TTNorms-bold;
+    }
+
+    &__grid {
+        margin-top: 6vmin;
+    }
+
+    &__subtitle {
+        margin-top: 2rem;
+    }
+
+    &__icon {
+        font-size: 5rem;
+        color: $white;
+    }
+
+    &__number {
+        @include fluid-type($min-vw, $max-vw, 30px, 48px);
+        font-family: $TTNorms-bold;
+        color: $red;
+    }
+}

@@ -1,0 +1,65 @@
+mixin menu(data, depth)
+    - ++depth
+    ul(class= data.subnav ? 'dropdown__menu' : 'menu__list')
+        each item in data.items
+            li(class= depth > 2 ? 'dropdown__item' : 'menu__item' class= item.subnav ? 'dropdown' : '' class= item.menuSelected ? "is-active" : "")
+                a(class= depth > 2 ? 'dropdown__link' : 'menu__link' class= item.subnav ? 'dropdown__toggle js-menu-dropdown-toggle' : '' href = item.link)= item.title
+                if item.subnav
+                    +menu(item, depth)
+
+-
+	var data = {
+	    "title": "Title text",
+	    "items": [{
+	            "title": "Item 1",
+	            "menuSelected": true,
+	            "link": '#'
+	        },
+	        {
+	            "title": "Item 2",
+	            "subnav": true,
+	            "items": [{
+	                    "title": "Item 2.1"
+	                },
+	                {
+	                    "title": "Item 2.2"
+	                },
+	                {
+	                    "title": "Item 2.2",
+	                    "subnav": true,
+	                    "items": [{
+	                            "title": "Item 2.2.1",
+	                            "subnav": true,
+	                            "items": [{
+	                                    "title": "Item 2.2.2.1"
+	                                },
+	                                {
+	                                    "title": "Item 2.2.2.2"
+	                                },
+	                                {
+	                                    "title": "Item 2.2.2.3",
+	                                    "menuSelected": true
+	                                }
+	                            ]
+	                        },
+	                        {
+	                            "title": "Item 2.2.2"
+	                        },
+	                        {
+	                            "title": "Item 2.2.3"
+	                        }
+	                    ]
+	                }
+	            ]
+	        },
+	        {
+	            "title": "Item 3"
+	        }
+	    ]
+	}
+
+nav.menu
+    +menu(data, 1)
+
+.site-overlay
+    .nav-mobile

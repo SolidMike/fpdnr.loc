@@ -1,0 +1,43 @@
+extends template/main
+
+block variables
+    - var title = 'Членские организации'
+    - var pageClass = 'organizations-page'
+
+block content
+    section.section.organizations
+        .container
+            ul.breadcrumbs(itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem")
+                +breadcrumbs-item('Главная','/')
+                +breadcrumbs-item('О нас','./content.html')
+                +breadcrumbs-item('Членские организации')
+            .section__title.section__title--size--large Членские организации
+            -
+                const docs = [
+                    {
+                        title: 'Приказ Министерства юстиции Донецкой Народной Республики от 29 ноября 2019 г. № 1032-ОД',
+                        descr: '<p><strong>Председатель</strong></p><p>Миронов Павел Валентинович</p><br/><p><strong>Email:</strong> <a href="mailto:profkomapk_dnr@mail.ru">profkomapk_dnr@mail.ru</a></p><p><strong>ул. Горького, 146, г. Донецк, 83001<strong></p>'
+                    },
+                    {
+                        title: 'Приказ Министерства юстиции Донецкой Народной Республики от 23 апреля 2018 г. № 197',
+                        descr: '<p><strong>Председатель</strong></p><p>Миронов Павел Валентинович</p><br/><p><strong>Email:</strong> <a href="mailto:profkomapk_dnr@mail.ru">profkomapk_dnr@mail.ru</a></p><p><strong>ул. Горького, 146, г. Донецк, 83001<strong></p>'
+                    },
+                    {
+                        title: 'Приказ Министерства юстиции Донецкой Народной Республики от 12 апреля 2018 г. № 183',
+                        descr: '<p><strong>Председатель</strong></p><p>Миронов Павел Валентинович</p><br/><p><strong>Email:</strong> <a href="mailto:profkomapk_dnr@mail.ru">profkomapk_dnr@mail.ru</a></p><p><strong>ул. Горького, 146, г. Донецк, 83001<strong></p>'
+                    },
+                    {
+                        title: 'Приказ Министерства юстиции Донецкой Народной Республики от 23 апреля 2018 г. № 197',
+                        descr: '<p><strong>Председатель</strong></p><p>Миронов Павел Валентинович</p><br/><p><strong>Email:</strong> <a href="mailto:profkomapk_dnr@mail.ru">profkomapk_dnr@mail.ru</a></p><p><strong>ул. Горького, 146, г. Донецк, 83001<strong></p>'
+                    },
+                    {
+                        title: 'Приказ Министерства юстиции Донецкой Народной Республики от 12 апреля 2018 г. № 183',
+                        descr: '<p><strong>Председатель</strong></p><p>Миронов Павел Валентинович</p><br/><p><strong>Email:</strong> <a href="mailto:profkomapk_dnr@mail.ru">profkomapk_dnr@mail.ru</a></p><p><strong>ул. Горького, 146, г. Донецк, 83001<strong></p>'
+                    },
+                ]
+            each doc in docs
+                article.card.card--type--docs
+                    .card__title= doc.title
+                    .card__descr!= doc.descr
+                hr.divider.divider--theme--light
+            include ./modules/pagination/pagination

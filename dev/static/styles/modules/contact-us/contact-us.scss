@@ -1,0 +1,28 @@
+.contact-us {
+    &__grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        grid-template-areas: 'form map';
+        grid-gap: 3rem;
+
+        @include screen(576px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: 400px 1fr;
+            grid-template-areas:
+                'map'
+                'form';
+        }
+    }
+
+    &__map {
+        grid-area: map;
+        &__container {
+            @include webp-bg-image('../images/general/map', 'jpg');
+            @include cover-background;
+        }
+    }
+
+    &__form {
+        grid-area: form;
+    }
+}

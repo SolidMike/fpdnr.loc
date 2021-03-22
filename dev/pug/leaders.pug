@@ -1,0 +1,40 @@
+extends template/main
+
+block variables
+    - var title = 'Руководство'
+    - var pageClass = 'leaders-page'
+
+block content
+    section.section.leaders 
+        .container 
+            ul.breadcrumbs(itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem")
+                +breadcrumbs-item('Главная','/')
+                +breadcrumbs-item('О нас', '#')
+                +breadcrumbs-item('Руководство федерации')
+            .section__title.section__title--size--large Руководство федерации
+            ul.grid 
+                -
+                    const leaders = [
+                        {
+                            name: '<span>Паршин</span><br /> Максим Алексеевич',
+                            position: 'Председатель Федерации Профсоюзов ДНР',
+                            photo: 'leader-1'
+                        },
+                        {
+                            name: '<span>Молчанова</span><br /> Елена Александровна',
+                            position: 'Заместитель председателя Федерации Профсоюзов ДНР',
+                            photo: 'leader-2'
+                        },
+                        {
+                            name: '<span>Мангуш</span><br /> Елена Васильевна',
+                            position: 'Заместитель председателя Федерации Профсоюзов ДНР',
+                            photo: 'leader-3'
+                        },
+                    ]
+                each leader in leaders
+                    li.grid__item
+                        figure.leaders-card 
+                            +picture('./static/images/content', leader.photo, ['webp', 'jpg'])(class="leaders-card__image")
+                            figcaprtion.leaders-card__info
+                                .leaders-card__name!= leader.name
+                                .leaders-card__position= leader.position

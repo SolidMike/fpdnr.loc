@@ -1,0 +1,71 @@
+include ../utils/mixins
+block variables
+
+doctype html
+html(lang="ru-RU")
+    head
+        meta(charset="utf-8")
+        title #{title}
+        <!--[if IE]>
+        meta(http-equiv='X-UA-Compatible', content="IE = edge")
+        <![endif]-->
+        meta(name="viewport" content="width=device-width,initial-scale=1")
+        meta(name="description" content="")
+        meta(name="keywords" content="")
+        meta(name='twitter:card' content='summary')
+        meta(name='twitter:site' content='')
+        meta(name='twitter:creator' content='')
+        meta(property='og:locale' content='ru_RU')
+        meta(property='og:type' content='')
+        meta(property='og:site_name' content='')
+        meta(property='og:title' content='')
+        meta(property='og:image' content='')
+        meta(property='og:url' content='')
+        meta(property='og:description' content='')
+        link(rel="preload" href="static/fonts/IBMPlexSerif-Bold.woff2" as="font" type="font/woff2" crossorigin)
+        link(rel="preload" href="static/fonts/IBMPlexSerif-Bold.woff" as="font" type="font/woff" crossorigin)
+        link(rel="preload" href="static/fonts/IBMPlexSerif.woff2" as="font" type="font/woff2" crossorigin)
+        link(rel="preload" href="static/fonts/IBMPlexSerif.woff" as="font" type="font/woff" crossorigin)
+        link(rel="preload" href="static/fonts/TTNorms-Bold.woff2" as="font" type="font/woff2" crossorigin)
+        link(rel="preload" href="static/fonts/TTNorms-Bold.woff" as="font" type="font/woff" crossorigin)
+        link(rel="preload" href="static/fonts/TTNorms-Regular.woff2" as="font" type="font/woff2" crossorigin)
+        link(rel="preload" href="static/fonts/TTNorms-Regular.woff" as="font" type="font/woff" crossorigin)
+        link(rel="stylesheet" type='text/css' href="static/css/styles.min.css")
+    body(class=pageClass)
+        .wrapper
+            .site-overlay
+                .nav-mobile
+                    ul.nav-mobile__contacts
+            include ../modules/header/header
+            main.main
+                block content
+            include ../modules/footer/footer
+            .to-top-btn.js-top-btn
+        script(src="static/js/jquery-3.3.1.min.js")
+        script(src="static/js/libs.min.js")
+        script(src="static/js/main.js")
+        script(type='application/ld+json').
+            {
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                "url": "",
+                "name": "",
+                "email": "",
+                "image": "",
+                "description": "",
+                "telephone" : [
+                    "",
+                    ""
+                    ],
+                "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "",
+                "postalCode": "",
+                "streetAddress": ""
+                },
+                "openingHours": "",
+                "sameAs" : [
+                ""
+                ]
+            }
+        block script

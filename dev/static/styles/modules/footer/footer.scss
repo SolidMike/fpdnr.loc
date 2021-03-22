@@ -1,0 +1,52 @@
+footer {
+    flex: 0 0 auto;
+}
+.footer {
+    color: $white;
+    @include cover-background;
+    @include webp-bg-image('../images/general/footer-bg', 'jpg');
+
+    @include screen(1000px) {
+        background-image: unset;
+        background-color: $mdnblue;
+    }
+
+    &__body,
+    &__info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    &__body {
+        grid-column-gap: 2rem;
+
+        @include screen(1000px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__left-side,
+    &__right-side,
+    &__copyright {
+        padding: calc(2rem + 1vw) 0;
+    }
+
+    &__nav,
+    &__info {
+        margin-top: calc(2rem + 0.5vw);
+    }
+
+    &__search {
+        margin-top: 1.5rem;
+
+        @include screen(1000px) {
+            margin-top: 0;
+        }
+    }
+
+    &__info {
+        @include screen(450px) {
+            grid-template-columns: 1fr;
+        }
+    }
+}

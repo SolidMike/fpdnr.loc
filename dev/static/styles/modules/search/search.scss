@@ -1,0 +1,56 @@
+.search {
+    &__form {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgba(255, 255, 255, 0.06);
+        border-radius: 4px;
+        color: $white;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-right: 1rem;
+        padding-left: 2rem;
+
+        .header__search & {
+            transition: max-width 0.3s;
+            width: 100%;
+            max-width: 15rem;
+        }
+
+        &:focus-within {
+            .header__search & {
+                max-width: 100%;
+                @include screen(921px, 1100px) {
+                    max-width: calc(100% - 60px);
+                }
+                @include min-screen(921px) {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    background-color: #182a4f;
+                    box-shadow: 0 0 0 2px #fff;
+                }
+            }
+        }
+    }
+
+    &__input {
+        background-color: transparent;
+        border: none;
+        color: inherit;
+        min-width: 0;
+        width: 100%;
+
+        &::placeholder {
+            color: $white;
+        }
+    }
+
+    &__btn {
+        background-color: transparent;
+        width: auto;
+        right: 1rem;
+        padding: 1rem;
+        min-width: initial;
+    }
+}

@@ -1,0 +1,69 @@
+mixin form_elem(config)
+	//- default values
+	- config.class_array = config.class_array || {}
+	- config.class_array.group_mod = config.class_array.group_mod || ''
+	- config.class_array.label_mod = config.class_array.label_mod || ''
+	- config.class_array.input_mod = config.class_array.input_mod || ''
+	- config.class_array.elem_mod = config.class_array.elem_mod || ''
+	- config.add_class = config.add_class || ''
+	- config.icon = config.icon || {}
+	- config.icon.name = config.icon.name || ''
+	- config.icon.mod = config.icon.mod || ''
+	- config.placeholder = config.placeholder || ''
+	- config.required = config.required || false
+	- config.form_id = config.form_id || false
+	if !config.id
+		- config.id = config.title.replace(/\s/g, '_').replace(/[.,:;(){}/?!@#$%&*]/g, '')
+	else
+		- config.id = config.id.replace(/\s/g, '_').replace(/[.,:;(){}/?!@#$%&*]/g, '')
+	if config.type === 'text' || config.type === 'password' || config.type === 'email' || config.type === 'textarea' || config.type === 'tel'
+		.form-group(class=config.class_array.group_mod)
+			label.form-group__label(for=config.id class=config.label_mod) #{config.title}
+				if config.icon.name
+					+icon(config.icon.name, `${config.icon.mod} form-group__icon`)
+				else
+			if config.type === 'text' || config.type === 'password' || config.type === 'email' || config.type === 'tel'
+				if config.value
+					input.form-group__input(value=config.value type=config.type id=config.id name=config.name class=`${config.class_array.input_mod} ${config.add_class}` placeholder=config.placeholder required=config.required form=config.form_id)
+					.form-group__help #{config.help}
+					block
+				else
+					input.form-group__input(type=config.type id=config.id name=config.name class=`${config.class_array.input_mod} ${config.add_class}` placeholder=config.placeholder required=config.required form=config.form_id)
+					.form-group__help #{config.help}
+					block
+			if config.type === 'textarea'
+				textarea.form-group__input(type=config.type id=config.id name=config.name class=`${config.class_array.input_mod} ${config.add_class}` placeholder=config.placeholder required=config.required form=config.form_id) #{config.value}
+				.form-group__help #{config.help}
+				block
+	if config.type === 'file'
+		.file-group(class=config.class_array.group_mod)
+			label.file-group__label(for=config.id class=config.label_mod) #{config.title}
+				if config.icon.name
+					+icon(config.icon.name, `${config.icon.mod} file-group__icon`)
+				else
+			input.file-group__input(type=config.type id=config.id name=config.name class=`${config.class_array.input_mod} ${config.add_class}` placeholder=config.placeholder required=config.required form=config.form_id)
+			.form-group__help #{config.help}
+			span.file-group__value.js-uploaded-file-value
+			block
+	if config.type === 'select'
+		select.select-group(id=config.id multiple name=config.name class=`${config.class_array.group_mod} ${config.add_class}` data-placeholder=config.placeholder required=config.required form=config.form_id)
+			each option in config.options
+				option.select-group__option(value=option)= option
+		block
+	if config.type === 'checkbox' || config.type === 'radio'
+		label.chk-rd-group(for=config.id class=config.label_mod)
+			if config.checked
+				input.chk-rd-group__input(name=config.name type=config.type class=`${config.class_array.input_mod} ${config.add_class}` checked='checked' required=config.required form=config.form_id)
+			else
+				input.chk-rd-group__input(name=config.name type=config.type class=`${config.class_array.input_mod} ${config.add_class}` required=config.required form=config.form_id)
+			span.chk-rd-group__label(class=config.elem_mod) #{config.title}
+		block
+	if config.type === 'search'
+		label.search-group(for=config.id class=config.label_mod) #{config.title}
+		input.search-group__input(id=config.id name=config.name type=config.type class=`${config.class_array.input_mod} ${config.add_class}` required=config.required form=config.form_id)
+		button.search-group__btn(type="submit" class=config.elem_mod)
+			if config.icon.name
+				+icon(config.icon.name, `${config.icon.mod} search-group__icon`)
+			else
+				span Найти
+		block

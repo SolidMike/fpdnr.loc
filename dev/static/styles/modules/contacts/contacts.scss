@@ -1,0 +1,46 @@
+.contacts {
+    display: flex;
+    flex-flow: column wrap;
+
+    &__link,
+    &__text {
+        color: inherit;
+        display: block;
+        padding: 0.2rem 1.5rem;
+        @include screen(530px) {
+            padding: 0.2rem 0;
+            font-size: 1.4rem;
+        }
+
+        .contacts--view--footer & {
+            padding: 1.2rem 1rem;
+        }
+
+        .contacts--view--contacts-page & {
+            padding: 0.3rem 0;
+        }
+    }
+    &__link {
+        &:hover {
+            color: $red-hovered;
+            span {
+                color: $red-hovered;
+            }
+        }
+    }
+    &__item {
+        span {
+            color: $skyblue;
+        }
+
+        .contacts--view--contacts-page & {
+            margin-left: 0;
+        }
+    }
+
+    &__title {
+        margin-bottom: 0.3rem;
+        margin-top: 1rem;
+        color: $red;
+    }
+}

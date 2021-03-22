@@ -1,0 +1,19 @@
+.to-top-btn{
+  width: calc(3rem + 1vw);
+  height: calc(3rem + 1vw);
+  background-image: url("../images/general/arrow-up.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  position: fixed;
+  opacity: 0.7;
+  bottom: 15px;
+  right: 15px;
+  cursor: pointer;
+  display: none;
+  z-index: 10;
+  
+  &:hover {
+    opacity: 1;
+  }
+}

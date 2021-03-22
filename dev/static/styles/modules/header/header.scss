@@ -1,0 +1,61 @@
+header {
+    flex: 0 0 auto;
+}
+.header {
+    @include cover-background;
+    @include webp-bg-image('../images/general/header-bg', 'jpg');
+    color: $white;
+    z-index: z('site-header');
+
+    @include screen(1000px) {
+        background-image: unset;
+        background-color: $mdnblue;
+    }
+
+    &--fixed {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-right: -50%;
+        width: 100%;
+    }
+
+    &__content,
+    &__info {
+        display: flex;
+        justify-content: space-between;
+        flex: auto;
+        align-items: center;
+    }
+
+    &__content {
+        padding: 2rem 0;
+        transition: padding 0.3s;
+
+        .header--fixed & {
+            padding: 0;
+        }
+
+        @include screen(1400) {
+            padding: 0;
+        }
+    }
+
+    &__logo {
+        margin-right: calc(1rem + 1vw);
+    }
+
+    &__info {
+        position: relative;
+        margin: 0 -1rem;
+        > * {
+            margin: 0 1rem;
+        }
+    }
+
+    &__contacts {
+        max-height: rem(80px);
+        flex: auto;
+    }
+}

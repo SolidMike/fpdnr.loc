@@ -1,0 +1,22 @@
+.logo {
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s;
+
+    &:hover {
+        opacity: 0.5;
+    }
+
+    &__text {
+        text-transform: uppercase;
+        font-family: $TTNorms-bold;
+        @include screen(530px) {
+            display: none;
+        }
+    }
+
+    &__link {
+        display: contents;
+        color: inherit;
+    }
+}

@@ -1,0 +1,24 @@
+section.section.hero
+    .swiper-container.hero__slider.js-hero-slider
+        .swiper-wrapper
+            .swiper-slide(style="background: url('./static/images/general/hero-banner.jpg') center bottom / cover no-repeat")
+    .container.hero__container
+        .hero__slogan В единстве наша сила!
+        .hero__statistic 
+        .hero__title Федерация Профсоюзов #[br]#[span в цифрах]
+        ul.grid.hero__grid
+            li.grid__item
+                .hero__inner 
+                    +icon('отрасли', 'hero__icon')
+                    .hero__subtitle Отраслевых профсоюзов
+                    .hero__number 25
+            li.grid__item
+                .hero__inner 
+                    +icon('ппо', 'hero__icon')
+                    .hero__subtitle ППО
+                    .hero__number 2496
+            li.grid__item
+                .hero__inner 
+                    +icon('опг', 'hero__icon')
+                    .hero__subtitle Членов профсоюзов
+                    .hero__number 287426

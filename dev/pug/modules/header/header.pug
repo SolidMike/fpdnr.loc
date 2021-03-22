@@ -1,0 +1,108 @@
+header.header
+    .header__body.container
+        .header__content
+            figure.logo.header__logo
+                a.logo__link(href="/")
+                    +picture('./static/images/general', 'logo', ['webp', 'png'])
+                    figcaption.logo__text Федерация #[br] правсоюзов днр
+            .header__info
+                ul.contacts.header__contacts 
+                    li.contacts__item 
+                        a.contacts__link(href="tel:+380623043431") +38 (062) 304-34-31
+                    li.contacts__item.contacts__item--mobile--hidden  
+                        a.contacts__link(href="mailto:priemnaya.fpdnr@yandex.ru") #[span priemnaya.fpdnr@yandex.ru]
+                    li.contacts__item.contacts__item--mobile--hidden 
+                        .contacts__text ул. Артёма 87, Донецк
+                    li.contacts__item.contacts__item--mobile--hidden 
+                        .contacts__text #[span пн–пт: 10:00–16:00]
+                .search.header__search
+                    form.search__form(action='' method='get')
+                        input#search.search__input(value='' type='search' name='search' placeholder='Поиск')
+                        input(type='hidden' name='id' value='')
+                        +btn({icon: {name: 'loop'}})(class="search__btn")
+                .header__btn
+                    +btn({label: 'информация для вступления', href: './content.html'})
+                .sandwich.js-sandwich-toggle(data-target="site-overlay" data-target-class-toggle="is-active")
+                    .sandwich__line.sandwich__line--top
+                    .sandwich__line.sandwich__line--middle
+                    .sandwich__line.sandwich__line--bottom
+        hr.divider
+        .header__nav
+            -
+                var data = {
+                    "title": "header menu",
+                    "items": [{
+                            "title": "О нас",
+                            "menuSelected": true,
+                            "link": './content.html',
+                            "subnav": true,
+                            "items": [{
+                               "title": "Основная цель",
+                               "link": './content.html'
+                            },
+                            {
+                                "title": "История создания",
+                                "link": "./content.html"
+                            },
+                            {
+                                "title": "Устав ФП ДНР",
+                                "link": "./content.html"
+                            },
+                            {
+                                "title": "Руководство",
+                                "link": "./leaders.html"
+                            },
+                            {
+                                "title": "Специалисты",
+                                "link": "./content.html"
+                            },
+                            {
+                                "title": "Членские организации",
+                                "link": "./organizations.html"
+                            },
+                            {
+                                "title": "Наши партнеры",
+                                "link": "./content.html"
+                            }]
+                        },
+                        {
+                            "title": "Направление деятельности",
+                            "link": "./content.html",
+                            "subnav": true,
+                            "items": [{
+                                    "title": "Документ",
+                                    "link": "./content.html"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Документы",
+                            "link": "./documents.html",
+                            "subnav": true,
+                            "items": [{
+                                    "title": "Документ",
+                                    "link": "./content.html"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Новости",
+                            "link": "./news.html",
+                        },
+                        {
+                            "title": "Обзор сми",
+                            "link": "./content.html",
+                        },
+                        {
+                            "title": "Календарный план",
+                            "link": "./calendar-plan.html",
+                        },
+                        {
+                            "title": "Контакты",
+                            "link": "./contacts.html",
+                        },
+                    ]
+                }
+            nav.menu
+                +menu(data, 1)
+        hr.divider

@@ -1,0 +1,274 @@
+@import 'utils/libs';
+@import 'utils/vars';
+@import 'utils/mixins';
+@import 'utils/fonts';
+@import 'utils/sprite';
+
+html {
+    height: 100%;
+    font-family: $TTNorms-reg;
+    font-size: $base-font-size;
+    line-height: $default-line-height;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    -moz-osx-font-smoothing: $default-font-smoothing;
+    -webkit-font-smoothing: $default-font-smoothing;
+}
+
+body {
+    height: 100%;
+    font-size: 1.6rem;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+a:not([class]) {
+    font: inherit;
+    transition: 0.3s ease;
+    color: $red;
+    &:focus,
+    &:hover {
+        color: $red-hovered;
+    }
+}
+
+a[class],
+button[class] {
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+picture {
+    display: block;
+}
+
+figure {
+    all: unset;
+    display: block;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video,
+textarea {
+    vertical-align: middle;
+}
+
+textarea {
+    resize: none;
+}
+
+.section {
+    position: relative;
+    padding: calc(2rem + 4.5vw) 0;
+
+    &--view--content {
+        padding-top: 0;
+    }
+
+    &__title {
+        @include fluid-type($min-vw, $max-vw, 24px, 36px);
+        font-family: $IBMPlex-bold;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: calc(2rem + 4.5vw);
+
+        .section--view--content & {
+            margin-bottom: calc(2rem + 2vw);
+        }
+
+        &--gutter--small {
+            margin-bottom: calc(2rem + 1vw);
+        }
+
+        &--size--large {
+            @include fluid-type($min-vw, $max-vw, 30px, 48px);
+        }
+
+        &--size--small {
+            @include fluid-type($min-vw, $max-vw, 20px, 30px);
+        }
+
+        &--color--white {
+            color: $white;
+        }
+
+        &--decorated {
+            overflow-x: hidden;
+            span {
+                position: relative;
+                display: inline-block;
+                &::before,
+                &::after {
+                    content: '';
+                    position: absolute;
+                    height: 2px;
+                    background-color: $red;
+                    width: 7rem;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: -10rem;
+                }
+                &::after {
+                    right: -10rem;
+                    left: auto;
+                }
+            }
+        }
+    }
+}
+
+input,
+select,
+button {
+    outline: none;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: calc(#{$content-size} + 3rem);
+    padding: 0 1.5rem;
+    width: 100%;
+}
+
+.divider {
+    // grid-column: 1 / -1;
+    // width: 100vw;
+    // position: relative;
+    // left: 50%;
+    // right: 50%;
+    // margin-left: -50vw;
+    // margin-right: -50vw;
+    // margin-top: 0;
+    // margin-bottom: 0;
+    border: none;
+    margin: 0;
+
+    &::before {
+        content: '';
+        position: absolute;
+        right: 0;
+        max-width: 100%;
+        width: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    &--theme--light {
+        &::before {
+            border: 1px solid #cfcfcf;
+        }
+    }
+}
+
+.slider-wrapp {
+    position: relative;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    content: none;
+}
+
+.contacts-page {
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-areas: 'info map';
+        grid-gap: 3rem;
+
+        @include screen(576px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: 400px 1fr;
+            grid-template-areas:
+                'map'
+                'info';
+            grid-gap: 0;
+        }
+    }
+
+    &__map {
+        grid-area: map;
+    }
+    &__info {
+        grid-area: info;
+        font: 1.8rem $TTNorms-bold;
+    }
+    &__socials {
+        margin-top: 8rem;
+
+        @include screen(576px) {
+            margin-top: 2rem;
+        }
+    }
+}
+
+.download {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: calc(1.5rem + 2vw);
+
+    > * {
+        margin-top: 1rem;
+        margin-right: 3rem;
+    }
+
+    &__title {
+        font: 2.4rem $IBMPlex-bold;
+        color: #121814;
+        text-transform: uppercase;
+    }
+}
+
+//Модули
+@import 'modules/modules';

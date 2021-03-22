@@ -1,0 +1,67 @@
+footer.footer
+    .footer__body.container
+        .footer__left-side 
+            figure.logo.footer__logo
+                a.logo__link(href="/")
+                    +picture('./static/images/general', 'logo', ['webp', 'png'])
+                    figcaption.logo__text Федерация #[br] правсоюзов днр
+            .footer__nav 
+                -
+                    var data = {
+                        "title": "header menu",
+                        "items": [{
+                                "title": "О нас",
+                                "menuSelected": true,
+                                "link": './content.html',
+                            },
+                            {
+                                "title": "Направление деятельности",
+                                "link": "./content.html",
+                            },
+                            {
+                                "title": "Документы",
+                                "link": "./documents.html",
+                            },
+                            {
+                                "title": "Новости",
+                                "link": "./news.html",
+                            },
+                            {
+                                "title": "Обзор сми",
+                                "link": "./content.html",
+                            },
+                            {
+                                "title": "Календарный план",
+                                "link": "./calendar-plan.html",
+                            },
+                            {
+                                "title": "Контакты",
+                                "link": "./contacts.html",
+                            },
+                        ]
+                    }
+                nav.menu.menu--view--footer
+                    +menu(data, 1)
+        .footer__right-side 
+            .search.footer__search 
+                form.search__form(action='' method='get')
+                        input#search-1.search__input(value='' type='search' name='search' placeholder='Поиск')
+                        input(type='hidden' name='id' value='')
+                        +btn({icon: {name: 'loop'}})(class="search__btn")
+            .footer__info
+                ul.contacts.footer__contacts.contacts--view--footer
+                    li.contacts__item
+                        a.contacts__link(href="tel:+380623043431") +38 (062) 304-34-31
+                    li.contacts__item
+                        a.contacts__link(href="tel:+380623043431") +38 (062) 304-34-31
+                    li.contacts__item
+                        a.contacts__link(href="mailto:priemnaya.fpdnr@yandex.ru") E-mail: #[span priemnaya.fpdnr@yandex.ru]
+                ul.contacts.footer__contacts.contacts--view--footer
+                    li.contacts__item 
+                        .contacts__text Адрес: #[span ул. Артёма 87, Донецк]
+                    li.contacts__item 
+                        .contacts__text График: #[span работы: пн–пт: 10:00–16:00]
+                    li.contacts__item 
+                        .contacts__text Перерыв: #[span 13:00–14:00]
+        hr.divider
+        .footer__copyright Федерация Профсоюзов ДНР © 2015-2021

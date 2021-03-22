@@ -1,0 +1,55 @@
+section.section.latest-news 
+    .section__title.section__title Последние новости
+    ul.grid.container 
+        -
+            const news = [
+                {
+                    image: 'news-1',
+                    title: 'Заседание Профкома ППО «Шахта Комсомолец Донбасса»',
+                    date: '<span>05</span> октября 2020',
+                    descr: ''
+                },
+                {
+                    image: 'news-2',
+                    title: 'Заседание Президиума Профессионального союза работников Пенсионного фонда ДНР',
+                    date: '<span>24</span> декабря 2020',
+                    descr: ''
+                },
+                {
+                    image: 'news-3',
+                    title: 'Заседание профсоюзного комитета ППО Филиала № 14 «Докучаевский флюсо-доломитный комбинат»',
+                    date: '<span>14</span> ноября 2020',
+                    descr: ''
+                },
+                {
+                    image: 'news-1',
+                    title: 'Заседание профсоюзного комитета ППО Филиала № 14 «Докучаевский флюсо-доломитный комбинат»',
+                    date: '<span>14</span> ноября 2020',
+                    descr: ''
+                },
+                {
+                    image: 'news-2',
+                    title: 'Заседание Профкома ППО «Шахта Комсомолец Донбасса»',
+                    date: '<span>24</span> декабря 2020',
+                    descr: ''
+                },
+                {
+                    image: 'news-3',
+                    title: 'Заседание Президиума Профессионального союза работников Пенсионного фонда ДНР',
+                    date: '<span>05</span> октября 2020',
+                    descr: ''
+                },
+            ]
+        each obj in news
+            li.grid__item 
+                article.card
+                    a(href="./article.html").card__link
+                        .card__heading
+                            .card__overlay.is-visible
+                            +picture('./static/images/content', obj.image, ['webp', 'jpg'])(class="card__image")
+                            .card__date!= obj.date
+                    .card__title= obj.title
+                    .news__descr
+                    a(href="./article.html").card__more Подробнее
+                        +icon('arrow-next', 'card__icon')
+

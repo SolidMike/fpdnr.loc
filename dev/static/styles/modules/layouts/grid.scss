@@ -1,0 +1,13 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(rem(274px), 1fr));
+    grid-gap: rem(30px);
+
+    &--col--quarter {
+        grid-template-columns: repeat(auto-fill, minmax(rem(270px), 1fr));
+    }
+
+    &--col--full {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,24 @@
+section.section.contact-us 
+    .contact-us__grid.container
+        form.form.contact-us__form(action="" method="")
+            .form__heading 
+                .form__title Обратная связь
+            .form__body 
+                input(type="text" name="name" placeholder="Ваше имя" required).form__input
+                input(type="email" name="email" placeholder="Ваш email" required).form__input 
+                input(type="tel" name="phone" placeholder="Ваш телефон" required).form__input 
+                textarea(type="textarea" name="message" placeholder="Сообщение" maxlength="250").form__input.form__textarea
+            .form__footer 
+                +btn({label: 'Отправить заявку', type: 'submit'})(class="form__submit")
+                .form__policy
+                    |Нажимая на кнопку, вы даете согласие на обработку своих персональных данных и соглашаетесь 
+                    a(href="") политикой конфиденциальности.
+        .map.contact-us__map
+            .map__title Наш адрес:
+            ul.map__info
+                li.map__address
+                    +icon('marker', 'map__icon')
+                    .map__text ул. Артёма 87, Донецк
+            .map__wrapper
+                .map__loader.loader.loader--default
+                #map-yandex
